@@ -2,14 +2,14 @@
     "margin: 2rem 0; font-family: 'Nanum Myeongjo', serif;"
 }
 
-.pragmatic_header_button{
+.pragmatic_header_bottom{
     "margin-bottom: 2rem 0"
 }
 
 .pragmatic_footer_logo{
-       "margin: 1.5rem 0;"
+       "margin: 1.5rem 0; font-family: 'Nanum Myeongjo', serif;"
 }
 
-.pragmatic_footer_button{
+.pragmatic_footer_bottom{
        "margin-top: 2rem;"
 }

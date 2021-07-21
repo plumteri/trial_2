@@ -12,6 +12,8 @@ from accountapp.models import HelloWorld
 
 
 def hello_world(request):
+
+  if request.user.is_authenticated:
     if request.method == "POST":
 
         temp = request.POST.get('input')
@@ -25,6 +27,10 @@ def hello_world(request):
     else:
         data_list = HelloWorld.objects.all()
         return render(request, 'accountapp/hello_world.html', context={'data_list': data_list})
+  else:
+      return HttpResponseRedirect(reverse('accountapp:login'))
+
+
 
 class AccountCreateView(CreateView):
     model = User
@@ -45,9 +51,34 @@ class AccountUpdateView(UpdateView):
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/delete.html'
     success_url = reverse_lazy('accountapp:hello_world')
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
 

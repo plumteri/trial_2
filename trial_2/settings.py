@@ -138,11 +138,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #최상위폴더의 스태틱파일스디렉토리를 루트(관련파일저장)로 설정할 것
 
 
 # Default primary key field type

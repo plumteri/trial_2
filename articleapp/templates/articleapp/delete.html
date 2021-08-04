@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-
+{# 삭제할거니까 부트스트랩 필요없음 #}
 {%  block content %}
 
     <div class="text-center mw-500 m-auto">
         <div class = 'm-5'>
-            <h4>Delete Article : {{ target_article.title }}</h4>
+            <h4>Delete Article : {{ target_article.title }}</h4> {# 타이틀 보여주며 삭제 재확인 뜸 #}
         </div>
         <div>
             <form action="{% url 'articleapp:delete' pk=target_article.pk %}"
@@ -12,7 +12,7 @@
                 {% csrf_token %}
                 <div class="m-5">
                     <input type="submit"
-                       class="btn btn-danger rounded-pill px-5">
+                       class="btn btn-danger rounded-pill px-5"> {# 둥근 빨간 버튼 #}
                 </div>
             </form>
         </div>

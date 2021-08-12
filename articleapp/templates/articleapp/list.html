@@ -4,16 +4,20 @@
 {% block content %}
 
     <style>
+        .container{
+            padding: 0;
+            margin: 0 auto;  {# 앞상하 뒤좌우 #}
+        }
         .container div {
-          width: 280px;
+          width: 45%;   {# 모바일 사진 #}
+            max-width: 200px; {# 데스크탑 사진#}
           display: flex;
           justify-content: center;
           align-items: center;
-          border-radius: 1rem;
+          border-radius: 1rem; {# 8px->1rem #}
             flex-direction: column;
-            box-shadow: 0 0 1rem gray;
+            box-shadow:  0 0 1rem grey;
         }
-
         .container img {
             width: 100%;
             border-radius: 1rem;

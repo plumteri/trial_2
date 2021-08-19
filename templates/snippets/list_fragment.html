@@ -1,0 +1,58 @@
+
+{% load static %}
+
+
+    <style>
+        .container{
+            padding: 0;
+            margin: 0 auto;  {# 앞상하 뒤좌우 #}
+        }
+        .container div {
+          width: 45%;   {# 모바일 사진 #}
+            max-width: 200px; {# 데스크탑 사진#}
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 1rem; {# 8px->1rem #}
+            flex-direction: column;
+            box-shadow:  0 0 1rem grey;
+        }
+
+        .container img {
+            width: 100%;
+            border-radius: 1rem;
+        }
+    </style>
+
+
+    <div class="container my-4">
+
+        {% for article in article_list %}
+
+            <div>
+                <a href="{%  url 'articleapp:detail' pk=article.pk %}">
+                    <img src="{{ article.image.url }}" alt="">
+                </a>
+                <span class="my-2 NNS_B">{{ article.title }} </span>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+
+    {% include 'snippets/pagination.html' %}
+
+    <div class="text-center">
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btndark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-outline-dark rounded-pill px-5">
+            Create Article
+        </a>
+    </div>
+
+

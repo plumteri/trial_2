@@ -10,7 +10,7 @@
 {% for message in messages %}
     <div class="text-center">
         <div class="btn btn-{{ message.tags }} rounded-pill px-5">
-            {{ message }}
+            {{ message }} {# 장고프레임워크에 묶여있는 메시지 객체에 접근 #}
         </div>
     </div>
 {% endfor %}
